@@ -34,15 +34,15 @@ end;
 % Noise std can vary between areas.
 noiseStd=localParams.noiseStd/sqrt(tStruct.dt);
 
-format long; 
+format long; toy=0;
 
 for i=2:tStruct.nSteps
 
-    % Calculate currents
-
-    if(areaInput.inp(i)==0 )
+    if(areaInput.inp(i)==0 && toy==0)
         state.exc = 10*ones(nNodes,1);state.inh = 35*ones(nNodes,1);
- 
+    else    
+        toy=1;
+
     state.excI=ldConns.ee*state.exc+localParams.ee.*state.exc+...
         localParams.ei.*state.inh+localParams.bgExc+noiseStd.*randn(nNodes,1);
     state.inhI=ldConns.ie*state.exc+localParams.ie.*state.exc+...

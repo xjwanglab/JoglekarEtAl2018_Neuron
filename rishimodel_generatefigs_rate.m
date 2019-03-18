@@ -14,7 +14,7 @@ cv(1,1:3) = [0.4660, 0.6740, 0.1880]; cv(2,1:3) = [0.4940,0.1840,0.5560];%color 
 
 %various cases below plot figures in neuron paper. 
 
-%caseval = 0; %normal fln values (not removing fb, symmetrizing fln matrix etc.) %netwParams.alpha=0
+caseval = 0; %normal fln values (not removing fb, symmetrizing fln matrix etc.) %netwParams.alpha=0
 %caseval = 1; flnMat = tril(flnMat);  %removing fb worsens propagation 
 %caseval = -1; netwParams.alpha=0;  %no hierarchy 
 %caseval = 2; flnMat = (flnMat+flnMat')/2; netwParams.alpha=.6;%symmetrizing fln matrix -- using arithmetic mean. 
